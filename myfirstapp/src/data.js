@@ -1,4 +1,4 @@
-export const data = [{
+const data = [{
     id: 1,
     name : "John",
     email : "abc@gmail.com"
@@ -15,3 +15,6 @@ export const data = [{
     name : "Kim",
     email : "kol@gmail.com"
 }];
+
+
+export default data;

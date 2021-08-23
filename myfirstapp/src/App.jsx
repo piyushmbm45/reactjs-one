@@ -1,5 +1,5 @@
 import React from 'react'
-import Setup from "./components/useState/ErrorExample"
+import Setup from "./components/useState/UseStateArray"
 
 const App = () => {
   return ( <Setup/>
