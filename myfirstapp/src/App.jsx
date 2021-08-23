@@ -1,10 +1,8 @@
 import React from 'react'
+import Setup from "./components/useState/ErrorExample"
 
 const App = () => {
-  return (
-    <div>
-      this is my name 
-    </div>
+  return ( <Setup/>
   )
 }
 
