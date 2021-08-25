@@ -11,6 +11,9 @@ const UseEffectsBasics = () => {
             document.title = `New Message`;            
         }
     },[value]);
+    useEffect(()=>{
+        console.log('2nd call effect');
+    },[])
     console.log("component render");
     return (
         <>
