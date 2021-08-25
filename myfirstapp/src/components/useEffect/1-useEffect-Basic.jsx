@@ -10,7 +10,7 @@ const UseEffectsBasics = () => {
         } else {
             document.title = `New Message`;            
         }
-    },[]);
+    },[value]);
     console.log("component render");
     return (
         <>
