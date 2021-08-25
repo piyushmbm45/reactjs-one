@@ -1,8 +1,23 @@
-import React from 'react'
+import React, {useState,useEffect} from 'react'
 
 function UseEffectCleanUp(){
+    const [size, setSize] = useState(window.innerWidth);
 
-    return <h1>useEffect CleanUp</h1>
+    function checkSize() {
+        setSize(window.innerWidth)
+    }
+
+    useEffect(()=>{
+        window.addEventListener("resize",checkSize)
+    })
+    console.log(size);
+
+    return (
+    <>
+    <h1>Window</h1>
+    <h2>{size} px</h2>
+    </>
+    );
 }
 
 
