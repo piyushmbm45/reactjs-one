@@ -18,13 +18,14 @@ function MultipleReturns() {
         }
       })
       .then((user) => {
-        const { login } = user;
-        setUser(login);
+        // const { login } = user;
+        setUser(user);
         setIsLoading(false);
       })
       .catch((err) => console.log(err));
   }, []);
 
+  //  multiple return to website these are just one line of html we can send much more data
   if (isLoading) {
     return <h1> Loading... </h1>;
   }
@@ -33,7 +34,10 @@ function MultipleReturns() {
   }
   return (
     <div>
-      <h1>{user}</h1>
+      <h1>{user.name}</h1>
+      <h2>{user.login}</h2>
+      <p>{user.blog}</p>
+      <img src={user.avatar_url} alt=""/>
     </div>
   );
 }
