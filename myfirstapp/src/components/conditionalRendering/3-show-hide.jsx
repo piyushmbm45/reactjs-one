@@ -15,6 +15,12 @@ function Item(){
     }
 useEffect(()=>{
     window.addEventListener("resize",checkSize)
+    // if we click on button every time use effect will render yes we running one time but our component
+    // rendering every time so the useEffect will also run to remove this we need to use cleanup function
+    // many events in event listener
+    return(()=>{
+        window.removeEventListener("resize",checkSize)
+    })
 },[])
     return<>
         <h1>Windows</h1>
