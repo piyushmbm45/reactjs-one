@@ -25,6 +25,23 @@ const reducer = (state, action) => {
       modalContent: "No item present",
     };
   }
+  if (action.type === "DELETE_ITEM") {
+      console.log(action.payLoad);
+    const newPeople = state.people.filter((ele) => ele.id !== action.payLoad);
+    console.log(newPeople);
+    return {
+      ...state,
+      people: newPeople,
+      isModalOpen: true,
+      modalContent: "item Deleted",
+    };
+  }
+  if (action.type === "CLOSE_MODAL") {
+    return {
+      ...state,
+      isModalOpen: false,
+    };
+  }
   return state;
 };
 export default function Index() {
@@ -42,10 +59,19 @@ export default function Index() {
       dispatch({ type: "NO_ITEM" });
     }
   };
+  const closeModal = () => {
+    dispatch({ type: "CLOSE_MODAL" });
+  };
+  const handleDelete = (id) => {
+      console.log("id"+ id);
+    dispatch({ type: "DELETE_ITEM", payLoad: id });
+  };
 
   return (
     <>
-      {state.isModalOpen && <Modal modalContent={state.modalContent} />}
+      {state.isModalOpen && (
+        <Modal closeModalTime={closeModal} modalContent={state.modalContent} />
+      )}
       <form className="form" onSubmit={handleSubmit}>
         <div>
           <input
@@ -57,7 +83,14 @@ export default function Index() {
         </div>
       </form>
       {state.people.map((ele) => {
-        return <div key={ele.id}>{ele.name}</div>;
+        return (
+          <div key={ele.id}>
+            <p>
+              {ele.name} {ele.id}
+            </p>
+            <button onClick={()=>handleDelete(ele.id)}>Remove</button>
+          </div>
+        );
       })}
     </>
   );
