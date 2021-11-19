@@ -1,49 +1,14 @@
 import React, { useState, useReducer } from "react";
 
 import Modal from "./modal";
+import { reducer } from "./reducer";
 
-import data from "../../data";
 const defaultState = {
   people: [],
   isModalOpen: false,
   modalContent: "",
 };
-const reducer = (state, action) => {
-  if (action.type === "ADD_ITEM") {
-    const newPeople = [...state.people, action.payLoad];
-    return {
-      ...state,
-      people: newPeople,
-      isModalOpen: true,
-      modalContent: "Item ADDED",
-    };
-  }
-  if (action.type === "NO_ITEM") {
-    return {
-      ...state,
-      isModalOpen: true,
-      modalContent: "No item present",
-    };
-  }
-  if (action.type === "DELETE_ITEM") {
-      console.log(action.payLoad);
-    const newPeople = state.people.filter((ele) => ele.id !== action.payLoad);
-    console.log(newPeople);
-    return {
-      ...state,
-      people: newPeople,
-      isModalOpen: true,
-      modalContent: "item Deleted",
-    };
-  }
-  if (action.type === "CLOSE_MODAL") {
-    return {
-      ...state,
-      isModalOpen: false,
-    };
-  }
-  return state;
-};
+
 export default function Index() {
   const [name, setName] = useState("");
   const [state, dispatch] = useReducer(reducer, defaultState);
@@ -63,7 +28,7 @@ export default function Index() {
     dispatch({ type: "CLOSE_MODAL" });
   };
   const handleDelete = (id) => {
-      console.log("id"+ id);
+    console.log("id" + id);
     dispatch({ type: "DELETE_ITEM", payLoad: id });
   };
 
@@ -88,7 +53,7 @@ export default function Index() {
             <p>
               {ele.name} {ele.id}
             </p>
-            <button onClick={()=>handleDelete(ele.id)}>Remove</button>
+            <button onClick={() => handleDelete(ele.id)}>Remove</button>
           </div>
         );
       })}
