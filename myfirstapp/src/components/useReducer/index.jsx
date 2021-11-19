@@ -3,34 +3,61 @@ import React, { useState, useReducer } from "react";
 import Modal from "./modal";
 
 import data from "../../data";
+const defaultState = {
+  people: [],
+  isModalOpen: false,
+  modalContent: "",
+};
+const reducer = (state, action) => {
+  if (action.type === "ADD_ITEM") {
+    const newPeople = [...state.people, action.payLoad];
+    return {
+      ...state,
+      people: newPeople,
+      isModalOpen: true,
+      modalContent: "Item ADDED",
+    };
+  }
+  if (action.type === "NO_ITEM") {
+    return {
+      ...state,
+      isModalOpen: true,
+      modalContent: "No item present",
+    };
+  }
+  return state;
+};
 export default function Index() {
   const [name, setName] = useState("");
-  const [showModal, setShoeMOdal] = useState(false);
-  const [people, setPeople] = useState(data);
-    console.log(data);
-  const handleSubmit =(e)=>{
-      e.preventDefault();
-      if(name){
-        setShoeMOdal(true)
-        setPeople([...people,{id: new Date().getTime().toString(),name}])
-        setName(name)
-      }
-  }
-
+  const [state, dispatch] = useReducer(reducer, defaultState);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (name) {
+      dispatch({
+        type: "ADD_ITEM",
+        payLoad: { id: new Date().getTime().toString(), name },
+      });
+      setName("");
+    } else {
+      dispatch({ type: "NO_ITEM" });
+    }
+  };
 
   return (
     <>
-      {showModal && <Modal />}
+      {state.isModalOpen && <Modal modalContent={state.modalContent} />}
       <form className="form" onSubmit={handleSubmit}>
         <div>
-          <input type="text" value={name} onChange={e => setName(e.target.value)}/>
+          <input
+            type="text"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
           <button type="submit">Submit</button>
         </div>
       </form>
-      {people.map(ele=>{
-          return <div key={ele.id}>
-              {ele.name}
-          </div>
+      {state.people.map((ele) => {
+        return <div key={ele.id}>{ele.name}</div>;
       })}
     </>
   );
