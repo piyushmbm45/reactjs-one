@@ -7,7 +7,7 @@ function MultipleReturns() {
   const [isError, setIsError] = useState(false);
   const [user, setUser] = useState("default User");
 
-  // useEffect(() => {
+  useEffect(() => {
     fetch(url2)
       .then((res) => {
         if (res.status >= 200 && res.status <= 299) {
@@ -24,7 +24,7 @@ function MultipleReturns() {
         setIsLoading(false);
       })
       .catch((err) => console.log(err));
-  // }, []);
+  }, []);
 
   //  multiple return to website these are just one line of html we can send much more data
   if (isLoading) {
