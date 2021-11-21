@@ -6,7 +6,8 @@ import React from 'react'
 // import Setup from "./components/useEffect/3-useEffect-fetchData"
 // import Setup from "./components/conditionalRendering/1-multipleReturns"
 // import Setup from './components/useRef/useRef_Basic'
-import Setup from './components/useReducer/index'
+// import Setup from './components/useReducer/index'
+import Setup from './components/propDriling/propDriling'
 
 const App = () => {
   return ( <Setup/>
