@@ -8,7 +8,8 @@ import React from 'react'
 // import Setup from './components/useRef/useRef_Basic'
 // import Setup from './components/useReducer/index'
 // import Setup from './components/propDriling/propDriling'
-import Setup from './components/contextAPI/contextApi'
+// import Setup from './components/contextAPI/contextApi'
+import Setup from './components/funcChild/funcChild'
 
 const App = () => {
   return ( <Setup/>

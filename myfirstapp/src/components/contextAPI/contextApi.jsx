@@ -8,14 +8,14 @@ function ContextApi() {
   const [people, setPeople] = useState(Data);
 
   const removePerson = (id) => {
-      console.log(id);
+    console.log(id);
     const newPeople = people.filter((person) => person.id !== id);
     setPeople(newPeople);
     console.log(newPeople);
   };
   return (
     <>
-      <PersonContext.Provider value={{removePerson, people}}>
+      <PersonContext.Provider value={{ removePerson, people }}>
         <h2>Context Api</h2>
         <List />
       </PersonContext.Provider>
@@ -24,24 +24,19 @@ function ContextApi() {
 }
 
 const List = () => {
-    const {people} = useContext(PersonContext)
+  const { people } = useContext(PersonContext);
   return (
     <>
       {people.map((person) => {
-        return (
-          <SinglePerson
-            key={person.id}
-            person={person}
-          />
-        );
+        return <SinglePerson key={person.id} person={person} />;
       })}
     </>
   );
 };
 
 const SinglePerson = ({ person }) => {
-    const {removePerson} = useContext(PersonContext)
-//   console.log(varg);
+  const { removePerson } = useContext(PersonContext);
+  //   console.log(varg);
   return (
     <>
       <div style={{ color: "white", backgroundColor: "grey", margin: "10px" }}>
