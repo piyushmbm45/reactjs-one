@@ -11,7 +11,8 @@ import React from 'react'
 // import Setup from './components/contextAPI/contextApi'
 // import Setup from './components/funcChild/funcChild'
 // import Setup from './components/classComponent/simple'
-import Setup from './components/classComponent/withState'
+// import Setup from './components/classComponent/withState'
+import Setup from './components/classComponent/withStatic'
 
 
 const App = () => {
