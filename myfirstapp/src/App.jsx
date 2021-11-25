@@ -12,7 +12,8 @@ import React from 'react'
 // import Setup from './components/funcChild/funcChild'
 // import Setup from './components/classComponent/simple'
 // import Setup from './components/classComponent/withState'
-import Setup from './components/classComponent/withStatic'
+// import Setup from './components/classComponent/withStatic'
+import Setup from './components/classComponent/shouldComponent'
 
 
 const App = () => {
