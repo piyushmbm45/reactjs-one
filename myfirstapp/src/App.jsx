@@ -14,7 +14,8 @@ import React from 'react'
 // import Setup from './components/classComponent/withState'
 // import Setup from './components/classComponent/withStatic'
 // import Setup from './components/classComponent/shouldComponent'
-import Setup from './components/classComponent/didUpdate'
+// import Setup from './components/classComponent/didUpdate'
+import Setup from './components/classComponent/state'
 
 
 const App = () => {
