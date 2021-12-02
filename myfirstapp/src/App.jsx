@@ -17,7 +17,8 @@ import React from 'react'
 // import Setup from './components/classComponent/didUpdate'
 // import Setup from './components/classComponent/state'
 // import Setup from './components/classComponent/getSnap'
-import Setup from './components/classComponent/unmount'
+// import Setup from './components/classComponent/unmount'
+import Setup from './components/useMemo/first'
 
 
 
