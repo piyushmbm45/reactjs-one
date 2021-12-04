@@ -19,7 +19,8 @@ import React from 'react'
 // import Setup from './components/classComponent/getSnap'
 // import Setup from './components/classComponent/unmount'
 // import Setup from './components/useMemo/first'
-import Setup from './components/useReducer/New'
+// import Setup from './components/useReducer/New'
+import Setup from './smallProjects/groceryBuds/index';
 
 
 
